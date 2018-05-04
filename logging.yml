@@ -1,0 +1,32 @@
+version: 1
+formatters:
+  simple:
+    format: "[%(asctime)s|%(name)s|%(levelname)s]: %(message)s"
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: WARN
+    formatter: simple
+    stream: ext://sys.stdout
+  file:
+    class : logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    filename: simple.log
+    maxBytes: 100000
+    backupCount: 3
+  logstash:
+    class: logstash.LogstashHandler
+    level: DEBUG
+    version: 1
+    host: "localhost"
+    port: 5959
+loggers:
+  simple: &defaultLogging
+    level: DEBUG
+    handlers: [console, file, logstash]
+    propagate: no
+  simple.endpoints: *defaultLogging
+root:
+  level: WARN
+  handlers: [console]

@@ -1,0 +1,4 @@
+.vscode/
+
+*.py[cdo]
+__pycache__/

@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+python-logstash = "*"
+pyyaml = "*"
+flask = "*"
+flask-restful = "*"
+python-dotenv = "*"
+
+[dev-packages]
+pylint = "*"
+"flake8" = "*"
+
+[requires]
+python_version = "3.6"
